@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>exercise3</title>
+</head>
+<body>
+	<div style="overflow-y: auto;height: 100px;" id="container">
+		<input class="checkBoxes" type="checkbox" name="checkbox" value="color_container">Color<br>
+		<div id="color_container" style="display: none;">
+			<input type="checkbox"  name="color">Red<br>
+			<input type="checkbox"  name="color">Yellow<br>
+			<input type="checkbox"  name="color">Green<br>
+			<input type="checkbox"  name="color">Blue
+		</div>
+		<input class="checkBoxes" type="checkbox" name="checkbox" value="drinks_container">Drinks<br>
+		<div id="drinks_container" style="display: none;">
+			<input type="checkbox"  name="drinks">Whisky<br>
+			<input type="checkbox"  name="drinks">Brandy<br>
+			<input type="checkbox"  name="drinks">Vodka<br>
+			<input type="checkbox"  name="drinks">Rum
+		</div>
+		<input class="checkBoxes" type="checkbox" name="checkbox" value="movies_container">Movies<br>
+		<div id="movies_container" style="display: none;">
+			<input type="checkbox"  name="movies">Die Hard IV<br>
+			<input type="checkbox"  name="movies">Pirates Of The Caribbean<br>
+			<input type="checkbox"  name="movies">Veer-Zara<br>
+			<input type="checkbox"  name="movies">Kal Ho Na Ho
+		</div>
+		<input class="checkBoxes" type="checkbox" name="checkbox" value="bikes_container">Bikes		
+		<div id="bikes_container" style="display: none;">
+			<input type="checkbox"  name="bikes"> KTM<br>
+			<input type="checkbox"  name="bikes">Royal Enfield<br>
+			<input type="checkbox"  name="bikes">TVS Apache<br>
+			<input type="checkbox"  name="bikes">Yamah YZF
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	let show_checkboxes = function(){
+		let myDiv = document.getElementById(this.value);
+		let container = document.getElementById("container");
+		if(this.checked == true)
+		myDiv.style.display = "block";
+	    else{
+            for(let i = 0; i < myDiv.childNodes.length; i++)
+            {
+            	myDiv.childNodes[i].checked = false;
+            }
+	    	myDiv.style.display = "none";
+	    }
+		container.scrollTo(0,500);
+	}
+	let checkBox_array = document.getElementsByClassName('checkBoxes');
+	for(let i = 0; i < checkBox_array.length; i++){
+		checkBox_array[i].addEventListener('click',show_checkboxes);
+	}
+</script>
