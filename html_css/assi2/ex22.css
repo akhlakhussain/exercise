@@ -1,0 +1,97 @@
+.container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.container .button {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark{
+	opacity: 0.7;
+	
+   text-align: center;
+   margin:3px;
+  display: inline-block;
+  height: 30px;
+  width: 60px;
+  background-color: #eee;
+}
+.container:hover .button ~ .checkmark {
+  background-color: #ccc;
+}
+.container .button:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+.checkmark:after {
+  content: "";
+  display: none;
+}
+.container .button:checked ~ .checkmark:after {
+  display: block;
+}
+.img{
+	width:20%;
+	height:20%;
+}
+.child1{
+	float:left;
+	width:65%;
+	text-align: center;
+}
+.tracking{
+	display: inline-block;
+	text-align:center;
+	width:40%;
+}
+.lock{
+	display: inline-block;
+	text-align:center;
+	width:40%;
+}
+.alerts{
+	display: inline-block;
+	text-align:center;
+	width:40%;
+}
+.health{
+	display: inline-block;
+	text-align:center;
+	width:40%;
+}
+.childp{
+	opacity:.7;
+}
+.login{
+	margin:2%;
+	display: inline-block;
+    box-shadow:0px 0px 15px 10px rgb(192,192,192,5);
+    width:20%;
+    padding:2%;
+}
+span{
+	border:1px outset rgb(150 150 150);
+	margin:1%;
+}
+.input{
+	height:40px;
+	width: 90%;
+}
+.submit{
+	border-radius:5px;
+	color: white;
+	border:none;
+	width:95%;
+	background-color: rgb(0,139,139);
+	height:50px;
+}
+@media screen and (max-width:800px) {
+  .tracking, .lock, .alerts,.health,.login,.child1{
+    width:100%;
+  }
+}
