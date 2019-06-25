@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>exercise3</title>
+	<link rel="stylesheet" type="text/css" href="js3.css">
+	<script type="text/javascript" src="js3.js"></script>
+</head>
+<body>
+</body>
+</html>
+<script type="text/javascript">
+let objectOfCheckboxes = new HiddenCheckboxes ();
+let parentCheckboxesArray = document.getElementsByClassName('parentCheckbox');
+for (let i = 0; i < 4; i += 1) {
+  parentCheckboxesArray[i].addEventListener('click', objectOfCheckboxes.showHiddenChilds);
+}
+</script>
