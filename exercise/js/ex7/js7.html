@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Countdown Timer</title>
+	<link rel="stylesheet" type="text/css" href="js7.css">
+	<script type="text/javascript" src="js7.js"></script>
+</head>
+<body>
+</body>
+</html>
+<script type="text/javascript">
+	const timerObject = new CountDown();
+	document.getElementById("startButton").addEventListener('click',CountDown.countdownTimer);
+	document.getElementById("pauseResume").addEventListener('click', CountDown.pause);
+</script>
