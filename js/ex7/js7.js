@@ -14,8 +14,8 @@ class CountDown {
     const divContainer = document.createElement("div");
     divContainer.id = "divContainer";
     for (let i = 0; i < 4; i += 1) {
-      const container = document.createElement("dev");
-      container.classList.add("container");
+      const container = document.createElement("div");
+      container.classList.add("timeContainer");
       const childSpan = document.createElement("span");
       childSpan.id = CountDownArray[i];
       const childContainer = document.createElement("div");
@@ -32,13 +32,9 @@ class CountDown {
     parentContainer.appendChild(lastDiv);
     const clockInput = document.createElement("input");
     clockInput.type = "text";
-    clockInput.placeholder = "Seconds";
+    clockInput.placeholder = "Enter Seconds";
     clockInput.id = "clockInput";
-    const inputLabel = document.createElement("label");
-    inputLabel.innerHTML = "Enter Number";
-    inputLabel.forHTML = clockInput;
     lastDiv.appendChild(clockInput);
-    lastDiv.appendChild(inputLabel);
     lastDiv.appendChild(document.createElement("br"));
     const startButton = document.createElement("input");
     startButton.type = "button";
@@ -48,8 +44,13 @@ class CountDown {
     pauseResume.id = "pauseResume";
     pauseResume.type = "button";
     pauseResume.value = "Pause";
+    const stopButton = document.createElement("input");
+    stopButton.id = "stop";
+    stopButton.type = "button";
+    stopButton.value = "Restart";
     lastDiv.appendChild(startButton);
     lastDiv.appendChild(pauseResume);
+    lastDiv.appendChild(stopButton);
     const endText = document.createElement("p");
     endText.id = "demo";
     lastDiv.appendChild(endText);
@@ -68,13 +69,25 @@ class CountDown {
     document.getElementById("Seconds").innerHTML = seconds;
     CountDown.givenTime -= 1;
     if (CountDown.givenTime < 0) {
+      document.getElementById("audioPlayer").play();
       clearInterval(CountDown.timer);
-      document.getElementById("demo").innerHTML = "TIME UP";
+      document.getElementById("demo").innerHTML = "TIME UP!";
       document.getElementById("Days").innerHTML = "0";
       document.getElementById("Hours").innerHTML = "0";
       document.getElementById("Minutes").innerHTML = "0";
       document.getElementById("Seconds").innerHTML = "0";
     }
+  }
+
+  static stop() {
+    document.getElementById("audioPlayer").pause();
+    clearInterval(CountDown.timer);
+    document.getElementById("demo").innerHTML = "Restart!";
+    document.getElementById("Days").innerHTML = "";
+    document.getElementById("Hours").innerHTML = "";
+    document.getElementById("Minutes").innerHTML = "";
+    document.getElementById("Seconds").innerHTML = "";
+    document.getElementById("clockInput").value = "";
   }
 
   static countdownTimer() {

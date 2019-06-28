@@ -5,7 +5,6 @@
 	
 }
 #divContainer{
-	
 }
 #lastDiv{
 
@@ -16,7 +15,7 @@
 	background-color: rgb(30 190 92);
 	padding: 10px;
 }
-.container{
+.timeContainer{
 	display: inline-block;
 	background-color: rgb(51 255 138);
 	padding: 10px;
@@ -30,6 +29,7 @@
 
 }
 #Days, #Hours, #Minutes, #Seconds{
+
 	display: inline-block;
 	border-radius:3px;
 	padding:15px;
