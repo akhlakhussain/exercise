@@ -34,7 +34,12 @@ class CountDown {
     clockInput.type = "text";
     clockInput.placeholder = "Enter Seconds";
     clockInput.id = "clockInput";
+    const para = document.createElement("p");
+    para.id = "para";
+    para.style.display = "none";
     lastDiv.appendChild(clockInput);
+    lastDiv.appendChild(para);
+    para.style.color = "red";
     lastDiv.appendChild(document.createElement("br"));
     const startButton = document.createElement("input");
     startButton.type = "button";
@@ -81,6 +86,9 @@ class CountDown {
 
   static stop() {
     document.getElementById("audioPlayer").pause();
+    const para = document.getElementById("para");
+    para.innerHTML = "";
+    para.style.display = "none";
     clearInterval(CountDown.timer);
     document.getElementById("demo").innerHTML = "Restart!";
     document.getElementById("Days").innerHTML = "";
@@ -92,11 +100,15 @@ class CountDown {
 
   static countdownTimer() {
     document.getElementById("demo").innerHTML = "";
+    const para = document.getElementById("para");
     CountDown.givenTime = document.getElementById("clockInput").value;
     if (CountDown.givenTime % 1 !== 0 || CountDown.givenTime === "") {
-      alert("Please Enter valid value");
-      return ;
+      para.style.display = "block";
+      para.innerHTML = "*Please Enter Valid Number";
+      return;
     }
+    para.innerHTML = "";
+    para.style.display = "none";
     CountDown.timer = setInterval(CountDown.startTimer, 1000);
   }
 
