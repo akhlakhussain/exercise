@@ -93,7 +93,7 @@ class CountDown {
   static countdownTimer() {
     document.getElementById("demo").innerHTML = "";
     CountDown.givenTime = document.getElementById("clockInput").value;
-    if (isNaN(CountDown.givenTime) === true) {
+    if (CountDown.givenTime % 1 !== 0 || CountDown.givenTime === "") {
       alert("Please Enter valid value");
       return ;
     }
