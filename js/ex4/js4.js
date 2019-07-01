@@ -2,7 +2,7 @@ class FormMethods {
   constructor() {
     const createForm = document.createElement("form");
 
-    createForm.setAttribute("methos", "post");
+    createForm.setAttribute('methos', "post");
     createForm.setAttribute("action", "submit.php");
     createForm.id = "cform";
     document.body.appendChild(createForm);
